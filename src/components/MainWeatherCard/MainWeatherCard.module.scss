@@ -1,0 +1,39 @@
+.card {
+  width: 40%;
+  color: #ffff;
+  padding: 20px;
+  background: #1E232C;
+  border-radius: 25px;
+
+  &_header {
+    display: flex;
+    justify-content: space-between;
+    &_date {
+      font-size: 16px;
+      opacity: .65;
+      margin-top: 5px;
+    }
+
+    &_img {
+      img {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+
+  &_content {
+    display: flex;
+    justify-content: space-between;
+    &_temp {
+      font-size: 53px;
+    }
+
+    &_description {
+      text-transform: capitalize;
+    }
+
+  }
+
+
+}

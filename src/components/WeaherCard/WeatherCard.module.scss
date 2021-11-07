@@ -1,0 +1,25 @@
+.card {
+  display: flex;
+  width: 150px;
+  height: 150px;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+  background: #1E232C;
+  padding: 20px;
+  color: #ffffff;
+
+  &_icon {
+    text-align: right;
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &_description {
+    display: flex;
+    flex-direction: column;
+  }
+
+}

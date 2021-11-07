@@ -8,7 +8,7 @@ export const fetchCurrentWeather = createAsyncThunk('weather/fetchCurrentWeather
     try {
         return  await fetchCurrentWeatherData(cityName)
     } catch (e) {
-        console.log(e)
+        return rejectWithValue('City not found')
     }
 })
 
@@ -40,7 +40,7 @@ export const weatherSlice = createSlice({
             state.error = ''
             state.isLoading = false
         },
-        [fetchCurrentWeather.rejected.type]: (state, action: PayloadAction<string>) => {
+        [fetchCurrentWeather.rejected.type]: (state, action) => {
             state.isLoading = false
             state.error = action.payload
         },

@@ -1,6 +1,7 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {QueriesStateType} from "../../types";
 import {RootState} from "./index";
+import {fetchCurrentWeather} from "./weather-reducer";
 
 const initialState: QueriesStateType = {
     selectedQuery: 'Kyiv',
@@ -26,6 +27,11 @@ export const queriesSlice = createSlice({
         selectQuery(state, action: PayloadAction<string>) {
             state.selectedQuery = action.payload
         },
+    },
+    extraReducers: builder => {
+        builder.addCase(fetchCurrentWeather.rejected, (state, action) => {
+            state.queries.shift()
+        })
     }
 })
 

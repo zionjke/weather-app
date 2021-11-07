@@ -27,18 +27,19 @@ export const SearchBlock: React.FC<SearchFormProps> = () => {
     }
 
     const onChangeCityHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        if(e.currentTarget.value === '' || regExp.test(e.currentTarget.value)) {
+        if (e.currentTarget.value === '' || regExp.test(e.currentTarget.value)) {
             setValue(e.currentTarget.value)
             setError(null)
         }
     }
 
-    console.log(errorMessage)
-
     return (
         <div className={styles.searchBlock}>
             {error && <Error>
                 {error}
+            </Error>}
+            {errorMessage && <Error>
+                {errorMessage}
             </Error>}
             <div className={styles.searchBlock_form}>
                 <input placeholder='Search City' value={value} onChange={onChangeCityHandler}/>

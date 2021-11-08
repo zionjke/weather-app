@@ -24,6 +24,7 @@ export const SearchBlock: React.FC<SearchFormProps> = () => {
         } else {
             setError('Please enter city name')
         }
+
     }
 
     const onChangeCityHandler = (e: ChangeEvent<HTMLInputElement>) => {

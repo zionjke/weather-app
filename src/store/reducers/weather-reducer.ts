@@ -6,9 +6,15 @@ import {RootState} from "./index";
 
 export const fetchCurrentWeather = createAsyncThunk('weather/fetchCurrentWeather', async (cityName: string, {rejectWithValue}) => {
     try {
-        return  await fetchCurrentWeatherData(cityName)
+        const data = await fetchCurrentWeatherData(cityName)
+        if (data.cod === 200) {
+            return data
+        } else {
+            throw new Error(data.message)
+        }
     } catch (e) {
-        return rejectWithValue('City not found')
+        // @ts-ignore
+        return rejectWithValue(e.response.data.message)
     }
 })
 

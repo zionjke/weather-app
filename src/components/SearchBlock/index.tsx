@@ -34,6 +34,7 @@ export const SearchBlock: React.FC<SearchFormProps> = () => {
         }
     }
 
+    console.log(errorMessage)
     return (
         <div className={styles.searchBlock}>
             {error && <Error>

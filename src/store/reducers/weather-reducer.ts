@@ -2,12 +2,17 @@ import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {WeatherDataType, WeatherStateType} from "../../types";
 import {fetchCurrentWeatherData, fetchDailyWeatherData} from "../../api";
 import {RootState} from "./index";
+import {addQuery} from "./queries-reducer";
 
 
-export const fetchCurrentWeather = createAsyncThunk('weather/fetchCurrentWeather', async (cityName: string, {rejectWithValue}) => {
+export const fetchCurrentWeather = createAsyncThunk('weather/fetchCurrentWeather', async (cityName: string, {
+    dispatch,
+    rejectWithValue
+}) => {
     try {
         const data = await fetchCurrentWeatherData(cityName)
         if (data.cod === 200) {
+            dispatch(addQuery(cityName))
             return data
         } else {
             throw new Error(data.message)

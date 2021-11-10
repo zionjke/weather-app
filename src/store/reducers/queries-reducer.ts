@@ -14,7 +14,6 @@ export const queriesSlice = createSlice({
     initialState,
     reducers: {
         addQuery(state, action: PayloadAction<string>) {
-            state.selectedQuery = action.payload
             let query = state.queries.findIndex(query => query === action.payload)
             if (query > -1) {
                 state.queries.filter(query => query !== action.payload)
@@ -28,18 +27,6 @@ export const queriesSlice = createSlice({
             state.selectedQuery = action.payload
         },
     },
-    extraReducers: {
-        [fetchCurrentWeather.fulfilled.type]: (state, action) => {
-            let query = state.queries.findIndex(query => query === state.selectedQuery)
-            if (query > -1) {
-                state.queries.filter(query => query !== state.selectedQuery)
-                state.message = 'Such a query already exists'
-            } else {
-                state.queries.unshift(state.selectedQuery)
-                state.message = ''
-            }
-        },
-    }
 })
 
 

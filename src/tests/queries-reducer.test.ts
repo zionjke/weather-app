@@ -18,7 +18,6 @@ test('correct query should be added', () => {
     const endState = queriesReducer(startState,action)
 
     expect(endState.queries.length).toBe(3)
-    expect(endState.selectedQuery).toBe(query)
 })
 
 test('correct query should be selected', () => {

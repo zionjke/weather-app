@@ -32,7 +32,7 @@ export const SearchBlock: React.FC<SearchFormProps> = () => {
             setError(null)
         }
     }
-    
+
     return (
         <div className={styles.searchBlock}>
             {error && <Error>
@@ -42,7 +42,7 @@ export const SearchBlock: React.FC<SearchFormProps> = () => {
                 {errorMessage}
             </Error>}
             <div className={styles.searchBlock_form}>
-                <input placeholder='Search City' value={value} onChange={onChangeCityHandler}/>
+                <input placeholder='Search City (EN only)' value={value} onChange={onChangeCityHandler}/>
                 <button disabled={isLoaded} onClick={onSearchClick}>
                     Search
                 </button>

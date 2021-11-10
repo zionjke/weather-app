@@ -15,7 +15,7 @@ export const loadState = () => {
 
 export const saveState = (state: RootState) => {
     try {
-        let serializedState = JSON.stringify(state.queries)
+        let serializedState = JSON.stringify(state)
         localStorage.setItem('queries', serializedState)
     } catch {
 

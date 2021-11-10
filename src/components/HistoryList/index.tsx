@@ -23,14 +23,12 @@ export const HistoryList: React.FC<HistoryListProps> = (props) => {
             <span onClick={onVisibleHandler}>History List</span>
             {visible && <div className={styles.historyBlock_list}>
                 {
-                    !queries.length ?
-                        <span>you do not have a history of requests</span>
-                        : queries.map(query => (
-                    <span key={query}
-                          onClick={() => onSelectedQueryHandler(query)}>
+                    queries && queries.map(query => (
+                        <span key={query}
+                              onClick={() => onSelectedQueryHandler(query)}>
                         {query}
                     </span>
-                ))}
+                    ))}
             </div>}
 
         </div>

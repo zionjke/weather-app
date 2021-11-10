@@ -1,7 +1,7 @@
 import React, {ChangeEvent} from 'react';
 import styles from './SearchForm.module.scss'
 import {useAppDispatch} from "../../store";
-import {addQuery} from "../../store/reducers/queries-reducer";
+import {selectQuery} from "../../store/reducers/queries-reducer";
 import {useSelector} from "react-redux";
 import {Error} from "../Error";
 import {errorMessageResponse, isLoading} from "../../store/reducers/weather-reducer";
@@ -18,13 +18,12 @@ export const SearchBlock: React.FC<SearchFormProps> = () => {
 
     const onSearchClick = () => {
         if (value.trim() !== '') {
-            dispatch(addQuery(value))
+            dispatch(selectQuery(value))
             setValue('')
             setError(null)
         } else {
             setError('Please enter city name')
         }
-
     }
 
     const onChangeCityHandler = (e: ChangeEvent<HTMLInputElement>) => {
